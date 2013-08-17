@@ -12,9 +12,6 @@
 <body>
   {{> menu}}
 
-  {{#if pageIsMembers}}
-  {{/if}}
-
   {{#if pageIsTodos}}
     {{> tag_filter}}
   {{/if}}
@@ -22,11 +19,11 @@
   {{#if pageIsRewards}}
   {{/if}}
 
-  <div id="main-pane">
-    {{#if pageIsMembers}}
-      {{> members}}
-    {{/if}}
+  {{#if pageIsMembers}}
+  {{/if}}
 
+  <div id="main-pane">
+    
     {{#if pageIsTodos}}
       {{> todos}}
     {{/if}}
@@ -34,6 +31,11 @@
     {{#if pageIsRewards}}
       {{> rewards}}
     {{/if}}
+
+    {{#if pageIsMembers}}
+      {{> members}}
+    {{/if}}
+
   </div>
 
   <div id="side-pane">
