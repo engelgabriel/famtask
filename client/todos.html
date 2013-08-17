@@ -53,8 +53,6 @@
     {{> todos}}
   </div>
 
-
-
   <div id="side-pane">
     {{> lists}}
   </div>
@@ -90,7 +88,7 @@
 
 <template name="todos">
   {{#if any_list_selected}}
-    <div id="items-view">
+    <div id="items-view" class="todo">
       {{#if loading}}
         Loading...
       {{else}}
@@ -109,21 +107,13 @@
 
 <template name="todo_item">
   <li class="todo {{done_class}}">
-    {{#if editing}}
-      <div class="edit">
-        <input id="todo-text-input" type="text" value="{{text}}" />
-        <input id="todo-points-input" type="text" value="{{points}}" />
-        {{> members}}
-      </div>
-    {{else}}
-      <div class="destroy"></div>
-      <div class="display">
-        <input class="check" name="markdone" type="checkbox" {{{done_checkbox}}} />
-        <div class="todo-text">{{text}}</div>
-        <div class="todo-points">{{points}}</div>
-        <div class="todo-member">{{member}}</div>
-      </div>
-    {{/if}}
+    <div class="destroy"></div>
+    <div class="display">
+      <input class="check" name="markdone" type="checkbox" {{{done_checkbox}}} />
+      <input id="todo-text-input" type="text" value="{{text}}" />
+      <input id="todo-points-input" type="text" value="{{points}}" />
+      {{> members}}
+    </div>
     <div class="item-tags">
       {{#each tag_objs}}
         <div class="tag removable_tag">

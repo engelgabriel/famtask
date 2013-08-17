@@ -1,4 +1,4 @@
-
+/*
 ul {
     list-style: none;
 }
@@ -35,7 +35,7 @@ h3 {
 }
 
 #top-tag-filter, #main-pane, #side-pane, #bottom-pane {
-    /*position: absolute;*/
+    position: absolute;
     left: 0;
     right: 0;
     top: 0;
@@ -259,7 +259,7 @@ h3 {
 #edittag-input {
     width: 80px;
 }
-
+*/
 
 
 
@@ -1496,8 +1496,9 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  border: 2px solid #bdc3c7;
-  color: #34495e;
+  border: 2px solid transparent;
+  color: white;
+  background-color: transparent;
   font-family: "Lato", sans-serif;
   font-size: 14px;
   padding: 8px 5px;

@@ -212,15 +212,27 @@ Template.todo_item.tag_objs = function () {
   });
 };
 
-Template.todo_item.members = function () {
+Template.todo_item.members_select = function () {
+  var list_id = Session.get('list_id');
+  if (!list_id)
+    return {};
+  var sel = {list_id: list_id};
+  return Members.find(sel, {sort: {name: 1}});
+
+
+
   var todo_id = this._id;
   return _.map(this.tags || [], function (tag) {
     return {todo_id: todo_id, tag: tag};
   });
 };
 
+
+
+
+
 Template.todo_item.done_class = function () {
-  return this.done ? 'done' : '';
+  return this.done ? 'todo-done' : '';
 };
 
 Template.todo_item.done_checkbox = function () {
@@ -250,19 +262,19 @@ Template.todo_item.events({
     activateInput(tmpl.find("#edittag-input"));
   },
 
-  'dblclick .display .todo-points': function (evt, tmpl) {
+  'click .todo-points': function (evt, tmpl) {
     Session.set('editing_itemname', this._id);
     Deps.flush(); // update DOM before focus
     activateInput(tmpl.find("#todo-points-input"));
   },
 
-  'dblclick .display .todo-text': function (evt, tmpl) {
+  'click .todo-text': function (evt, tmpl) {
     Session.set('editing_itemname', this._id);
     Deps.flush(); // update DOM before focus
     activateInput(tmpl.find("#todo-text-input"));
   },
 
-  'dblclick .display .todo-member': function (evt, tmpl) {
+  'click .todo-member': function (evt, tmpl) {
     Session.set('editing_itemname', this._id);
     Deps.flush(); // update DOM before focus
     activateInput(tmpl.find("#todo-member-input"));
