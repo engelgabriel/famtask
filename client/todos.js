@@ -248,7 +248,7 @@ Template.todo_item.adding_tag = function () {
 };
 
 Template.todo_item.events({
-  'click .check': function () {
+  'click .checkmark': function () {
     Todos.update(this._id, {$set: {done: !this.done}});
   },
 

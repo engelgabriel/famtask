@@ -3159,6 +3159,7 @@ textarea[class*="span"] {
 }
 .todo li {
   background: #34495e;
+  background-size: 20px 20px;
   cursor: pointer;
   margin-top: 2px;
   padding: 18px 42px 17px 25px;
@@ -3169,8 +3170,8 @@ textarea[class*="span"] {
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
 }
-.todo li .check {
-  background: #34495e url(../images/todo/todo.png) center center no-repeat;
+.todo li .checkmark {
+  background: transparent url(../images/todo/todo.png) center center no-repeat;
   background-size: 20px 20px;
   width: 100px;
   height: 100px;
@@ -3190,9 +3191,11 @@ textarea[class*="span"] {
   background-size: 20px 20px;
   color: #1abc9c;
 }
-.todo li.todo-done .check {
+.todo li.todo-done .checkmark {
   background: transparent url(../images/todo/done.png) center center no-repeat;
   background-size: 20px 20px;
+  width: 100px;
+  height: 100px;
 }
 
 .todo li.todo-done .todo-name {
@@ -3254,10 +3257,10 @@ input.todo-search-field.placeholder {
   margin: 1px 0 3px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
-  .todo li {
+  .todo li .checkmark {
     background-image: url(../images/todo/todo-2x.png);
   }
-  .todo li.todo-done {
+  .todo li.todo-done .checkmark {
     background-image: url(../images/todo/done-2x.png);
   }
 }
