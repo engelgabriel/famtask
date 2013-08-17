@@ -100,28 +100,25 @@ Template.menu.events({
   }
 });
 
+Handlebars.registerHelper("pageIsTodos", function() {
+  return Session.get('page') === 'todos';
+});
+Handlebars.registerHelper("pageIsRewards", function() {
+  return Session.get('page') === 'rewards';
+});
 Handlebars.registerHelper("pageIsMembers", function() {
   return Session.get('page') === 'members';
 });
 
-Handlebars.registerHelper("pageIsTodos", function() {
-  return Session.get('page') === 'todos';
-});
-
-Handlebars.registerHelper("pageIsRewards", function() {
-  return Session.get('page') === 'rewards';
-});
-
-Handlebars.registerHelper("membersActive", function() {
-  return Session.get('page') === 'members' ? 'active' : '';
-});
 
 Handlebars.registerHelper("todosActive", function() {
   return Session.get('page') === 'todos' ? 'active' : '';
 });
-
 Handlebars.registerHelper("rewardsActive", function() {
   return Session.get('page') === 'rewards' ? 'active' : '';
+});
+Handlebars.registerHelper("membersActive", function() {
+  return Session.get('page') === 'members' ? 'active' : '';
 });
 
 ////////// Lists //////////
