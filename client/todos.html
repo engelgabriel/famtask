@@ -7,24 +7,29 @@
         {{#if loading}}
           Loading...
         {{else}}
-          <div id="new-todo-box">
-            <input type="text" id="new-todo" placeholder="New item" />
-          </div>
           <table id="item-list" class="table">
             <thead id="member_head">
               <tr>
-                <th>Delete</th>
+                <th></th>
                 <th>Task</th>
                 <th>Points</th>
                 <th>Tasks</th>
                 <th>Tags</th>
-                <th>Status</th>
+                <th></th>
               </tr>
             </thead>
             <tbody id="member_body">
             {{#each todos}}
               {{> todo_item}}
             {{/each}}
+              <tr class="todo {{done_class}}">
+                <td></td>
+                <td id="new-todo-box"><input type="text" id="new-todo" placeholder="New item" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
             </tbody>
           </table>
         {{/if}}
@@ -57,7 +62,7 @@
         </div>
       {{/if}}
     </td>
-    <td class="checkmark" style="width: 1%"></td>
+    <td class="checkmark" style="width: 1%"><i class="icon-check-empty icon-2x"></i></td>
   </tr>
 </template>
 

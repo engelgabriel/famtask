@@ -258,6 +258,14 @@ body {
   height: 100%;
 }
 
+.table th, .table td {
+  border-top: 0;
+}
+
+.todo-done .icon-check-empty:before {
+  content: "\f046";
+}
+
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
 @font-face {
   font-family: 'Flat-UI-Icons';
@@ -3153,21 +3161,10 @@ textarea[class*="span"] {
   -webkit-backface-visibility: hidden;
 }
 
-.todo .checkmark {
-  background: transparent url(../images/todo/todo.png) center center no-repeat;
-  background-size: 20px 20px;
-  height: 40px;
-}
-
 .todo.todo-done {
   background: transparent;
   background-size: 20px 20px;
   color: #1abc9c;
-}
-.todo.todo-done .checkmark {
-  background: transparent url(../images/todo/done.png) center center no-repeat;
-  background-size: 20px 20px;
-  height: 40px;
 }
 
 .todo-done .todo-name {
@@ -3231,12 +3228,6 @@ input.todo-search-field.placeholder {
   margin: 1px 0 3px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
-  .todo div .checkmark {
-    background-image: url(../images/todo/todo-2x.png);
-  }
-  .todo div.todo-done .checkmark {
-    background-image: url(../images/todo/done-2x.png);
-  }
 }
 footer {
   background-color: #edeff1;
