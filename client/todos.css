@@ -242,29 +242,12 @@ h3 {
 */
 
 
-
-
-
-
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    padding: 0 !important;
-}
-
-#item-list .todo .destroy {
-    cursor: pointer;
-    height: 20px;
-}
-
-#item-list .todo .destroy {
-    background: url('/destroy.png') no-repeat 0 0;
-}
-
-#item-list .todo .destroy:hover {
-    background-position: 0 -20px;
+  padding: 0 !important;
 }
 
 .container {
