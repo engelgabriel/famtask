@@ -1,5 +1,7 @@
 // if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
+  Lists.remove({});
+  Todos.remove({});
   if (Lists.find().count() === 0) {
     var data = [
       {name: "Meteor Principles",
@@ -46,7 +48,8 @@ Meteor.startup(function () {
         Todos.insert({list_id: list_id,
                       text: info[0],
                       timestamp: timestamp,
-                      tags: info.slice(1)});
+                      tags: info.slice(1),
+                      points: Math.floor((Math.random()*100)+1)});
         timestamp += 1; // ensure unique timestamp.
       }
     }
