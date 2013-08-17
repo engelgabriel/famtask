@@ -156,9 +156,10 @@
 </template>
 
 <template name="members">
-  <select name="member" value="{{name}}" class="select-block span3" style="">
+  {{member}}
+  <select name="member" value="{{member}}" class="select-block span3" style="">
     {{#each members}}
-        <option value="{{name}}" {{#if isSelected name}}selected="selected"{{/if}}>{{name}}</option>
+        <option value="{{name}}" {{#if isSelected member}}selected="selected"{{/if}}>{{name}} - ({{member}})</option>
     {{/each}}
   </select>
 </template>
