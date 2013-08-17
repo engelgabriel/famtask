@@ -94,7 +94,7 @@
 
 <template name="todos">
   {{#if any_list_selected}}
-    <div id="items-view" class="todo">
+    <div id="items-view" class="todo container">
       {{#if loading}}
         Loading...
       {{else}}
@@ -112,15 +112,13 @@
 </template>
 
 <template name="todo_item">
-  <li class="todo {{done_class}}">
-    <div class="destroy"></div>
-    <div class="display" class="todo-name">
-      <input id="todo-text-input" type="text" value="{{text}}" />
-      <input id="todo-points-input" type="text" value="{{points}}" />
-      {{> members}}
-      <div class="checkmark"></div>
-    </div>
-    <div class="item-tags">
+  <li class="todo {{done_class}} row">
+    <div class="destroy span1"></div>
+    <input class="span3" id="todo-text-input" type="text" value="{{text}}" />
+    <input class="span1" id="todo-points-input" type="text" value="{{points}}" />
+    {{> members}}
+    <div class="checkmark span1"></div>
+    <div class="item-tags span1">
       {{#each tag_objs}}
         <div class="tag removable_tag">
           <div class="name">{{tag}}</div>
@@ -152,7 +150,7 @@
 </template>
 
 <template name="members">
-  <select name="member" id="todo-member-input" value="{{member}}" class="select-block span3" style="">
+  <select name="member" id="todo-member-input" value="{{member}}" class="span3" style="">
     {{#each members}}
         <option value="{{name}}" {{#if isSelected ../member}}selected="selected"{{/if}}>{{name}}</option>
     {{/each}}
