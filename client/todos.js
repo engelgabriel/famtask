@@ -221,7 +221,14 @@ Template.member_task.isMembersTask = function (member) {
   return member === this.member;
 };
 
-
+Template.members.events({
+  'click #member_name': function (evt) {
+    console.log(evt);
+    Router.showMember();
+    Deps.flush();
+    return false;
+  }
+});
 ////////// Todos //////////
 
 Template.todos.loading = function () {
