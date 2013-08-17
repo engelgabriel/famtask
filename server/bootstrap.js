@@ -36,16 +36,19 @@ Meteor.startup(function () {
           {
             name: "Jonny",
             role: "son",
+            points: 500,
             avatar: "qwerty"
           },
           {
             name: "Mary",
             role: "mother",
+            points: 5000,
             avatar: "qwerty"
           },
           {
             name: "John",
             role: "father",
+            points: 3450,
             avatar: "qwerty"
           }
         ]
@@ -55,7 +58,7 @@ Meteor.startup(function () {
           {
             text: "Take the trash out",
             points: 50,
-            done: "",
+            done: "done",
             member: "Bart"
           },
           {
@@ -81,26 +84,31 @@ Meteor.startup(function () {
           {
             name: "Bart",
             role: "son",
+            points: -1500,
             avatar: "qwerty"
           },
           {
             name: "Lisa",
             role: "daughter",
+            points: 4320,
             avatar: "qwerty"
           },
           {
             name: "Meggie",
             role: "daughter",
+            points: 9000,
             avatar: "qwerty"
           },
           {
             name: "Margge",
             role: "mother",
+            points: 6730,
             avatar: "qwerty"
           },
           {
             name: "Homer",
             role: "father",
+            points: 10,
             avatar: "qwerty"
           }
         ]
@@ -136,26 +144,31 @@ Meteor.startup(function () {
           {
             name: "Bart",
             role: "son",
+            points: 10,
             avatar: "qwerty"
           },
           {
             name: "Lisa",
             role: "daughter",
+            points: 20,
             avatar: "qwerty"
           },
           {
             name: "Meggie",
             role: "daughter",
+            points: 30,
             avatar: "qwerty"
           },
           {
             name: "Margge",
             role: "mother",
+            points: 40,
             avatar: "qwerty"
           },
           {
             name: "Homer",
             role: "father",
+            points: 50,
             avatar: "qwerty"
           }
         ]

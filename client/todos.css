@@ -251,9 +251,9 @@ h3 {
 
 
 
-
-
-
+body {
+    padding: 0 !important;
+}
 
 #item-list .todo .destroy {
     cursor: pointer;
