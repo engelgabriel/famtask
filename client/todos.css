@@ -268,7 +268,9 @@ body {
     background-position: 0 -20px;
 }
 
-
+.container {
+  padding-top: 20px;
+}
 
 
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
