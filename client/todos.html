@@ -157,9 +157,9 @@
 
 <template name="members">
   {{member}}
-  <select name="member" value="{{member}}" class="select-block span3" style="">
+  <select name="member" id="todo-member-input" value="{{member}}" class="select-block span3" style="">
     {{#each members}}
-        <option value="{{name}}" {{#if isSelected member}}selected="selected"{{/if}}>{{name}} - ({{member}})</option>
+        <option value="{{name}}" {{#if isSelected ../member}}selected="selected"{{/if}}>{{name}}</option>
     {{/each}}
   </select>
 </template>
