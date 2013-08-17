@@ -4,6 +4,7 @@
 Lists = new Meteor.Collection("lists");
 Todos = new Meteor.Collection("todos");
 Rewards = new Meteor.Collection("rewards");
+Members = new Meteor.Collection("members");
 
 // ID of currently selected list
 Session.setDefault('list_id', null);
@@ -226,7 +227,13 @@ Template.todo_item.events({
   'dblclick .display .todo-text': function (evt, tmpl) {
     Session.set('editing_itemname', this._id);
     Deps.flush(); // update DOM before focus
-    activateInput(tmpl.find("#todo-input"));
+    activateInput(tmpl.find("#todo-text-input"));
+  },
+
+  'dblclick .display .todo-member': function (evt, tmpl) {
+    Session.set('editing_itemname', this._id);
+    Deps.flush(); // update DOM before focus
+    activateInput(tmpl.find("#todo-member-input"));
   },
 
   'click .remove': function (evt) {
@@ -258,6 +265,18 @@ Template.todo_item.events(okCancelEvents(
   {
     ok: function (value) {
       Todos.update(this._id, {$set: {text: value}});
+      Session.set('editing_itemname', null);
+    },
+    cancel: function () {
+      Session.set('editing_itemname', null);
+    }
+  }));
+
+Template.todo_item.events(okCancelEvents(
+  '#todo-member-input',
+  {
+    ok: function (value) {
+      Todos.update(this._id, {$set: {member: value}});
       Session.set('editing_itemname', null);
     },
     cancel: function () {

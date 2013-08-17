@@ -33,7 +33,21 @@ Meteor.startup(function () {
           }
         ],
         members: [
-          "Jonny","Mum","Dad"
+          {
+            name: "Jonny",
+            role: "son",
+            avatar: "qwerty"
+          },
+          {
+            name: "Mary",
+            role: "mother",
+            avatar: "qwerty"
+          },
+          {
+            name: "John",
+            role: "father",
+            avatar: "qwerty"
+          }
         ]
       },
       {name: "The Simpsons",
@@ -64,8 +78,32 @@ Meteor.startup(function () {
           }
          ],
          members: [
-          "Homer","Margge","Bart", "Lisa", "Meggie"
-         ]
+          {
+            name: "Bart",
+            role: "son",
+            avatar: "qwerty"
+          },
+          {
+            name: "Lisa",
+            role: "daughter",
+            avatar: "qwerty"
+          },
+          {
+            name: "Meggie",
+            role: "daughter",
+            avatar: "qwerty"
+          },
+          {
+            name: "Margge",
+            role: "mother",
+            avatar: "qwerty"
+          },
+          {
+            name: "Homer",
+            role: "father",
+            avatar: "qwerty"
+          }
+        ]
       },
       {name: "The Jetsons",
         todos: [
@@ -73,29 +111,53 @@ Meteor.startup(function () {
             text: "Take the trash out",
             points: 50,
             done: "",
-            member: "Jonny"
+            member: "Meggie"
           },
           {
             text: "Clean the room",
             points: 250,
             done: "",
-            member: "Jonny"
+            member: "Lisa"
           },
           {
             text: "Take the dog for a walk",
             points: 10,
             done: "",
-            member: "Jonny"
+            member: "Bart"
           },
           {
             text: "Clean the dishes",
             points: 100,
             done: "",
-            member: "Jonny"
+            member: "Bart"
           }
         ],
-        members: [
-          "Homer","Margge","Bart", "Lisa", "Meggie"
+         members: [
+          {
+            name: "Bart",
+            role: "son",
+            avatar: "qwerty"
+          },
+          {
+            name: "Lisa",
+            role: "daughter",
+            avatar: "qwerty"
+          },
+          {
+            name: "Meggie",
+            role: "daughter",
+            avatar: "qwerty"
+          },
+          {
+            name: "Margge",
+            role: "mother",
+            avatar: "qwerty"
+          },
+          {
+            name: "Homer",
+            role: "father",
+            avatar: "qwerty"
+          }
         ]
       }
     ];
@@ -109,6 +171,15 @@ Meteor.startup(function () {
                       points: info.points,
                       done: info.done,
                       member: info.member,
+                      timestamp: timestamp});
+        timestamp += 1; // ensure unique timestamp.
+      }
+      for (var m = 0; m < data[i].members.length; m++) {
+        var member = data[i].members[m];
+        Members.insert({list_id: list_id,
+                      name: member.name,
+                      role: member.role,
+                      avatar: member.avatar,
                       timestamp: timestamp});
         timestamp += 1; // ensure unique timestamp.
       }

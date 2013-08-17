@@ -243,7 +243,10 @@ h3 {
     width: 25px;
 }
 
-#item-list .todo .todo-text {
+#item-list .todo .todo-text,
+#item-list .todo .todo-points,
+#item-list .todo .todo-member
+ {
     float: left;
     margin-left: 10px;
     font-size: 100%;
