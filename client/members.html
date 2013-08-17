@@ -7,7 +7,7 @@
           <th id="name">Name</th>
           <th id="role">Role</th>
           <th id="point">Points</th>
-          <th>Badges</th>
+          <th>Tasks</th>
         </tr>
       </thead>
       <tbody id="member_body">
@@ -17,19 +17,16 @@
           <td class="span4">{{role}}</td>
           <td class="span4"><div class="badge badge-info">{{points}}</div> <div class="progress">
             <div class="bar" style="width: {{points}}%"></td>
-          <td class="span4"></div>
-          </div>
-      	</td>
+          <td class="span4">{{> member_task}}</td>
         </tr>
       {{/each}}
       </tbody>
     </table>
   </div>
-  {{> member_task}}
 </template>
 
-<template name="member_task">
-  <div class="container">
-    <div class="span4">Clean</div>
-  </div>
+<template name="member_task">  
+  	{{#each todos}}
+    	{{#if isMembersTask ../name}}- {{text}}<br>{{/if}}
+    {{/each}}
 </template>

@@ -43,24 +43,3 @@
     </div>
   </div>
 </template>
-
-<template name="tag_filter">
-  <div id="top-tag-filter">
-    <div id="tag-filter" class="tag-list">
-      <div class="label">Show:</div>
-      {{#each tags}}
-        <div class="tag {{selected}}">
-          {{tag_text}} <span class="count">({{count}})</span>
-        </div>
-      {{/each}}
-    </div>
-  </div>
-</template>
-
-<template name="member_select">
-  <select name="member" id="reward-member-input" value="{{member}}" style="width: 100%">
-    {{#each members}}
-        <option value="{{name}}" {{#if isSelected ../member}}selected="selected"{{/if}}>{{name}}</option>
-    {{/each}}
-  </select>
-</template>

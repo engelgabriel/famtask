@@ -219,6 +219,30 @@ Template.members.members = function () {
   return Members.find(sel, {sort: {points: -1}});
 };
 
+////////// Member Task //////////
+Template.member_task.loading = function () {
+
+  return todosHandle && !todosHandle.ready();
+}
+
+Template.member_task.todos = function () {
+  // Determine which members to display in main pane,
+  // selected based on list_id and tag_filter.
+
+  var list_id = Session.get('list_id');
+  if (!list_id)
+    return {};
+
+  var sel = {list_id: list_id};
+
+  return Todos.find(sel, {sort: {timestamp: 1}});
+};
+
+Template.member_task.isMembersTask = function (member) {
+  return member === this.member;
+};
+
+
 ////////// Todos //////////
 
 Template.todos.loading = function () {
