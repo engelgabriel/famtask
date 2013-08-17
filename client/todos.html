@@ -1,4 +1,6 @@
 <template name="todos">
+  {{> tag_filter}}
+  <div id="main-pane">
   {{#if any_list_selected}}
     <div id="items-view" class="todo-list">
       {{#if loading}}
@@ -15,6 +17,7 @@
       {{/if}}
     </div>
   {{/if}}
+  </div>
 </template>
 
 <template name="todo_item">
