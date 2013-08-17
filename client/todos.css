@@ -3169,7 +3169,7 @@ textarea[class*="span"] {
 .todo li .checkmark {
   background: transparent url(../images/todo/todo.png) center center no-repeat;
   background-size: 20px 20px;
-  height: 20px;
+  height: 40px;
 }
 
 .todo li:first-child {
@@ -3189,7 +3189,7 @@ textarea[class*="span"] {
 .todo li.todo-done .checkmark {
   background: transparent url(../images/todo/done.png) center center no-repeat;
   background-size: 20px 20px;
-  height: 20px;
+  height: 40px;
 }
 
 .todo li.todo-done .todo-name {
