@@ -266,6 +266,10 @@ body {
   content: "\f046";
 }
 
+#top-tag-filter {
+  padding-bottom: 20px;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,700italic,900,400italic,300");
 @font-face {
   font-family: 'Flat-UI-Icons';
