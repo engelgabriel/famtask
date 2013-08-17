@@ -10,9 +10,13 @@
 
 <body>
   {{> menu}}
-  <div id="top-tag-filter">
-    {{> tag_filter}}
-  </div>
+
+    {{#if pageIsMembers}}
+    {{else}}
+      <div id="top-tag-filter">
+        {{> tag_filter}}
+      </div>
+    {{/if}}
 
   <div id="main-pane">
     {{#if pageIsMembers}}

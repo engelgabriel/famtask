@@ -192,6 +192,7 @@ Meteor.startup(function () {
         Members.insert({list_id: list_id,
                       name: member.name,
                       role: member.role,
+                      points: member.points,
                       avatar: member.avatar,
                       timestamp: timestamp});
         timestamp += 1; // ensure unique timestamp.

@@ -1,11 +1,24 @@
 <template name="members">
   <div class="container">
-    {{#each members}}
-        <div class="member_row">
-           	<div class="span4">{{name}}</div>
-        	<div class="span4">{{role}}</div>
-        	<div class="span4">{{points}}</div>
-        </div>
-    {{/each}}
+    <table class="members table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each members}}
+        <tr>
+          <td class="span4">1</td>
+          <td class="span4">{{name}}</td>
+          <td class="span4">{{role}}</td>
+          <td class="span4">{{points}}</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
   </div>
 </template>
