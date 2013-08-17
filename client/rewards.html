@@ -1,20 +1,24 @@
 <template name="rewards">
-  {{#if any_list_selected}}
-    <div id="items-view" class="reward-list">
-      {{#if loading}}
-        Loading...
-      {{else}}
-        <div id="new-reward-box">
-          <input type="text" id="new-reward" placeholder="New item" />
-        </div>
-        <div id="item-list">
-          {{#each rewards}}
-            {{> reward_item}}
-          {{/each}}
-        </div>
-      {{/if}}
+  <div class="palette-wisteria">
+    <div id="main-pane" class="container palette-wisteria">
+    {{#if any_list_selected}}
+      <div id="items-view" class="reward-list">
+        {{#if loading}}
+          Loading...
+        {{else}}
+          <div id="new-reward-box">
+            <input type="text" id="new-reward" placeholder="New item" />
+          </div>
+          <div id="item-list">
+            {{#each rewards}}
+              {{> reward_item}}
+            {{/each}}
+          </div>
+        {{/if}}
+      </div>
+    {{/if}}
     </div>
-  {{/if}}
+  </div>
 </template>
 
 <template name="reward_item">

@@ -10,33 +10,20 @@
 </head>
 
 <body>
+
   {{> menu}}
 
   {{#if pageIsTodos}}
-    {{> tag_filter}}
+    {{> todos}}
   {{/if}}
 
   {{#if pageIsRewards}}
+    {{> rewards}}
   {{/if}}
 
   {{#if pageIsMembers}}
+    {{> members}}
   {{/if}}
-
-  <div id="main-pane">
-    
-    {{#if pageIsTodos}}
-      {{> todos}}
-    {{/if}}
-
-    {{#if pageIsRewards}}
-      {{> rewards}}
-    {{/if}}
-
-    {{#if pageIsMembers}}
-      {{> members}}
-    {{/if}}
-
-  </div>
 
   <div id="side-pane">
     {{> lists}}
