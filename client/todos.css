@@ -3141,7 +3141,7 @@ textarea[class*="span"] {
     background-image: url(../images/tile/ribbon-2x.png);
   }
 }
-.todo {
+.todo-list {
   background-color: #2c3e50;
   color: #798795;
   /*margin-bottom: 20px;*/
@@ -3149,11 +3149,8 @@ textarea[class*="span"] {
   -moz-border-radius: 8px 8px 6px 6px;
   border-radius: 8px 8px 6px 6px;
 }
-.todo ul {
-/*  margin: 0;*/
-  list-style-type: none;
-}
-.todo li {
+
+.todo  {
   background: #34495e;
   background-size: 20px 20px;
   cursor: pointer;
@@ -3166,35 +3163,28 @@ textarea[class*="span"] {
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
 }
-.todo li .checkmark {
+
+.todo .checkmark {
   background: transparent url(../images/todo/todo.png) center center no-repeat;
   background-size: 20px 20px;
   height: 40px;
 }
 
-.todo li:first-child {
-  margin-top: 0;
-}
-.todo li:last-child {
-  -webkit-border-radius: 0 0 6px 6px;
-  -moz-border-radius: 0 0 6px 6px;
-  border-radius: 0 0 6px 6px;
-  padding-bottom: 18px;
-}
-.todo li.todo-done {
+.todo.todo-done {
   background: transparent;
   background-size: 20px 20px;
   color: #1abc9c;
 }
-.todo li.todo-done .checkmark {
+.todo.todo-done .checkmark {
   background: transparent url(../images/todo/done.png) center center no-repeat;
   background-size: 20px 20px;
   height: 40px;
 }
 
-.todo li.todo-done .todo-name {
+.todo-done .todo-name {
   color: #1abc9c;
 }
+
 .todo-search {
   position: relative;
   background: #1abc9c;
@@ -3203,6 +3193,7 @@ textarea[class*="span"] {
   color: #34495e;
   padding: 19px 25px 20px;
 }
+
 .todo-search:before {
   position: absolute;
   font-family: 'Flat-UI-Icons';
@@ -3251,10 +3242,10 @@ input.todo-search-field.placeholder {
   margin: 1px 0 3px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
-  .todo li .checkmark {
+  .todo div .checkmark {
     background-image: url(../images/todo/todo-2x.png);
   }
-  .todo li.todo-done .checkmark {
+  .todo div.todo-done .checkmark {
     background-image: url(../images/todo/done-2x.png);
   }
 }

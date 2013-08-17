@@ -57,25 +57,25 @@
 
 <template name="todos">
   {{#if any_list_selected}}
-    <div id="items-view" class="todo container">
+    <div id="items-view" class="todo-list">
       {{#if loading}}
         Loading...
       {{else}}
         <div id="new-todo-box">
           <input type="text" id="new-todo" placeholder="New item" />
         </div>
-        <ul id="item-list">
+        <div id="item-list">
           {{#each todos}}
             {{> todo_item}}
           {{/each}}
-        </ul>
+        </div>
       {{/if}}
     </div>
   {{/if}}
 </template>
 
 <template name="todo_item">
-  <li class="todo {{done_class}} row">
+  <div class="todo {{done_class}} row">
     <div class="span1 destroy"></div>
     <div class="span3"><input id="todo-text-input" type="text" value="{{text}}" style="width: 100%"/></div>
     <div class="span1"><input id="todo-points-input" type="text" value="{{points}}" style="width: 100%"/></div>
@@ -98,7 +98,7 @@
         </div>
       {{/if}}
     </div>
-  </li>
+  </div>
 </template>
 
 <template name="tag_filter">
