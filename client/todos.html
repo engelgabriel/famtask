@@ -9,9 +9,7 @@
 </head>
 
 <body>
-
   {{> menu}}
-
   <div id="top-tag-filter">
     {{> tag_filter}}
   </div>
@@ -28,49 +26,6 @@
     {{> lists}}
   </div>
 </body>
-
-<template name="menu">
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
-      <div class="nav-collapse collapse" id="nav-collapse-01">
-        <ul class="nav">
-          <li class="{{membersActive}}">
-            <a href="" id="membersMenu">
-              Members
-              <span class="navbar-unread">1</span>
-            </a>
-          </li>
-          <li class="{{todosActive}}">
-            <a href="" id="tasksMenu">
-              Tasks
-              <span class="navbar-unread">1</span>
-            </a>
-            <ul>
-              <li><a href="#fakelink">Element One</a></li>
-              <li>
-                <a href="#fakelink">Sub menu</a>
-                <ul>
-                  <li><a href="#fakelink">Element One</a></li>
-                  <li><a href="#fakelink">Element Two</a></li>
-                  <li><a href="#fakelink">Element Three</a></li>
-                </ul> <!-- /Sub menu -->
-              </li>
-              <li><a href="#fakelink">Element Three</a></li>
-            </ul> <!-- /Sub menu -->
-          </li>
-          <li>
-            <a href="#fakelink">
-              Rewards
-            </a>
-          </li>
-        </ul>
-      </div><!--/.nav -->
-    </div>
-  </div>
-</div>
-</template>
 
 <template name="lists">
   <h3>Families</h3>
@@ -124,7 +79,7 @@
     <div class="span1 destroy"></div>
     <div class="span3"><input id="todo-text-input" type="text" value="{{text}}" style="width: 100%"/></div>
     <div class="span1"><input id="todo-points-input" type="text" value="{{points}}" style="width: 100%"/></div>
-    <div class="span3">{{> members}}</div>
+    <div class="span3">{{> member_select}}</div>
     <div class="span1 checkmark"></div>
     <div class="span3 item-tags ">
       {{#each tag_objs}}
@@ -157,7 +112,7 @@
   </div>
 </template>
 
-<template name="members">
+<template name="member_select">
   <select name="member" id="todo-member-input" value="{{member}}" style="width: 100%">
     {{#each members}}
         <option value="{{name}}" {{#if isSelected ../member}}selected="selected"{{/if}}>{{name}}</option>

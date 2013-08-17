@@ -169,6 +169,27 @@ Template.lists.editing = function () {
 
 ////////// Member //////////
 
+Template.member_select.loading = function () {
+  return membersHandle && !membersHandle.ready();
+};
+
+Template.member_select.members = function () {
+  // Determine which members to display in main pane,
+  // selected based on list_id and tag_filter.
+
+  var list_id = Session.get('list_id');
+  if (!list_id)
+    return {};
+  var sel = {list_id: list_id};
+  return Members.find(sel, {sort: {name: 1}});
+};
+
+Template.member_select.isSelected = function (name) {
+  return name === this.name;
+};
+
+////////// Member //////////
+
 Template.members.loading = function () {
   return membersHandle && !membersHandle.ready();
 };
@@ -182,10 +203,6 @@ Template.members.members = function () {
     return {};
   var sel = {list_id: list_id};
   return Members.find(sel, {sort: {name: 1}});
-};
-
-Template.members.isSelected = function (name) {
-  return name === this.name;
 };
 
 ////////// Todos //////////
