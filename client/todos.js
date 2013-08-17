@@ -465,11 +465,17 @@ var TodosRouter = Backbone.Router.extend({
   setList: function (list_id) {
     this.navigate('todos/'+list_id, true);
   },
+  showTodos: function () {
+    this.navigate('todos/'+Session.get("list_id"), true);
+  },
+  showRewards: function () {
+    this.navigate('rewards/'+Session.get("list_id"), true);
+  },
   showMembers: function () {
     this.navigate('members', true);
   },
-  showTodos: function () {
-    this.navigate('todos/'+Session.get("list_id"), true);
+  showMember: function () {
+    this.navigate('member/'+Session.get("member_id"), true);
   }
 });
 

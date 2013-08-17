@@ -1,13 +1,8 @@
 <template name="menu">
   <div class="navbar navbar-inverse">
     <div class="navbar-inner">
-      <a class="brand" href="#" style="font-family: 'Grand Hotel', cursive; text-decoration: none;">FamTask</a>
+      <a class="brand" style="font-family: 'Grand Hotel', cursive; text-decoration: none;">FamTask</a>
       <ul class="nav">
-        <li class="{{membersActive}}">
-          <a href="" id="membersMenu">
-            Members
-          </a>
-        </li>
         <li class="{{todosActive}}">
           <a href="" id="todosMenu">
             Tasks
@@ -16,6 +11,11 @@
         <li class="{{rewardsActive}}">
           <a href="" id="rewardsMenu">
             Rewards
+          </a>
+        </li>
+        <li class="{{membersActive}}">
+          <a href="" id="membersMenu">
+            Members
           </a>
         </li>
       </ul>
