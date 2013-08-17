@@ -10,20 +10,40 @@
 
 <body>
 
+  {{> menu}}
+
+  <div id="top-tag-filter">
+    {{> tag_filter}}
+  </div>
+
+  <div id="main-pane">
+    {{#if pageIsMembers}}
+      {{> members}}
+    {{else}}
+      {{> todos}}
+    {{/if}}
+  </div>
+
+  <div id="side-pane">
+    {{> lists}}
+  </div>
+</body>
+
+<template name="menu">
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
       <div class="nav-collapse collapse" id="nav-collapse-01">
         <ul class="nav">
-          <li>
-            <a href="#fakelink">
+          <li class="{{membersActive}}">
+            <a href="" id="membersMenu">
               Members
               <span class="navbar-unread">1</span>
             </a>
           </li>
-          <li class="active">
-            <a href="#fakelink">
+          <li class="{{todosActive}}">
+            <a href="" id="tasksMenu">
               Tasks
               <span class="navbar-unread">1</span>
             </a>
@@ -50,19 +70,7 @@
     </div>
   </div>
 </div>
-
-  <div id="top-tag-filter">
-    {{> tag_filter}}
-  </div>
-
-  <div id="main-pane">
-    {{> todos}}
-  </div>
-
-  <div id="side-pane">
-    {{> lists}}
-  </div>
-</body>
+</template>
 
 <template name="lists">
   <h3>Families</h3>

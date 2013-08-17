@@ -20,6 +20,7 @@ Session.setDefault('editing_listname', null);
 
 // When editing todo text, ID of the todo
 Session.setDefault('editing_itemname', null);
+Session.setDefault('page', 'todos');
 
 // Subscribe to 'lists' collection on startup.
 // Select a list once data has arrived.
@@ -80,6 +81,31 @@ var activateInput = function (input) {
   input.focus();
   input.select();
 };
+
+Template.menu.events({
+  'click #membersMenu': function (evt) {
+    Router.showMembers();
+    Deps.flush();
+    return false;
+  },
+  'click #tasksMenu': function (evt) {
+    Router.showTodos();
+    Deps.flush();
+    return false;
+  }
+});
+
+Handlebars.registerHelper("pageIsMembers", function() {
+  return Session.get('page') === 'members';
+});
+
+Handlebars.registerHelper("membersActive", function() {
+  return Session.get('page') === 'members' ? 'active' : '';
+}); 
+
+Handlebars.registerHelper("todosActive", function() {
+  return Session.get('page') === 'todos' ? 'active' : '';
+}); 
 
 ////////// Lists //////////
 
@@ -385,17 +411,32 @@ Template.tag_filter.events({
 
 var TodosRouter = Backbone.Router.extend({
   routes: {
-    ":list_id": "main"
+    // "": "main",
+    "todos/:list_id": "todos",
+    "members": "members"
   },
   main: function (list_id) {
+  //   this.navigate('todos', true);
+  },
+  todos: function (list_id) {
     var oldList = Session.get("list_id");
     if (oldList !== list_id) {
       Session.set("list_id", list_id);
       Session.set("tag_filter", null);
     }
+    Session.set("page", "todos");
+  },
+  members: function (list_id) {
+    Session.set("page", "members");
   },
   setList: function (list_id) {
-    this.navigate(list_id, true);
+    this.navigate('todos/'+list_id, true);
+  },
+  showMembers: function () {
+    this.navigate('members', true);
+  },
+  showTodos: function () {
+    this.navigate('todos/'+Session.get("list_id"), true);
   }
 });
 
