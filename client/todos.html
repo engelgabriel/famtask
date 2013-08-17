@@ -113,7 +113,7 @@
       <div class="edit">
         <input id="todo-text-input" type="text" value="{{text}}" />
         <input id="todo-points-input" type="text" value="{{points}}" />
-        <input id="todo-member-input" type="text" value="{{member}}" />
+        {{> members}}
       </div>
     {{else}}
       <div class="destroy"></div>
@@ -153,4 +153,12 @@
       </div>
     {{/each}}
   </div>
+</template>
+
+<template name="members">
+  <select name="member" value="{{name}}" class="select-block span3" style="">
+    {{#each members}}
+        <option value="{{name}}" {{#if isSelected name}}selected="selected"{{/if}}>{{name}}</option>
+    {{/each}}
+  </select>
 </template>

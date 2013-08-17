@@ -32,13 +32,17 @@ var listsHandle = Meteor.subscribe('lists', function () {
 });
 
 var todosHandle = null;
+var membersHandle = null;
 // Always be subscribed to the todos for the selected list.
 Deps.autorun(function () {
   var list_id = Session.get('list_id');
-  if (list_id)
+  if (list_id) {
     todosHandle = Meteor.subscribe('todos', list_id);
-  else
+    membersHandle = Meteor.subscribe('members', list_id);
+  } else {
     todosHandle = null;
+    membersHandle = null;
+  }
 });
 
 
@@ -135,6 +139,27 @@ Template.lists.name_class = function () {
 
 Template.lists.editing = function () {
   return Session.equals('editing_listname', this._id);
+};
+
+////////// Member //////////
+
+Template.members.loading = function () {
+  return membersHandle && !membersHandle.ready();
+};
+
+Template.members.members = function () {
+  // Determine which members to display in main pane,
+  // selected based on list_id and tag_filter.
+
+  var list_id = Session.get('list_id');
+  if (!list_id)
+    return {};
+  var sel = {list_id: list_id};
+  return Members.find(sel, {sort: {name: 1}});
+};
+
+Template.members.isSelected = function (name) {
+  return name === this.name;
 };
 
 ////////// Todos //////////
