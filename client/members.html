@@ -1,27 +1,29 @@
 <template name="members">
-  <div class="container">
-    <table class="members table">
-      <thead id="member_head">
-        <tr>
-          <!-- <th>#</th> -->
-          <th id="name">Name</th>
-          <th id="role">Role</th>
-          <th id="point">Points</th>
-          <th>Tasks</th>
-        </tr>
-      </thead>
-      <tbody id="member_body">
-      {{#each members}}
-        <tr>
-          <td class="span4">{{name}}</td>
-          <td class="span4">{{role}}</td>
-          <td class="span4"><div class="badge badge-info">{{points}}</div> <div class="progress">
-            <div class="bar" style="width: {{points}}%"></td>
-          <td class="span4">{{> member_task}}</td>
-        </tr>
-      {{/each}}
-      </tbody>
-    </table>
+  <div class="palette-pumpkin">
+    <div id="main-pane" class="container palette-pumpkin">
+      <table class="members table">
+        <thead id="member_head">
+          <tr>
+            <!-- <th>#</th> -->
+            <th id="name">Name</th>
+            <th id="role">Role</th>
+            <th id="point">Points</th>
+            <th>Tasks</th>
+          </tr>
+        </thead>
+        <tbody id="member_body">
+        {{#each members}}
+          <tr>
+            <td class="span4">{{name}}</td>
+            <td class="span4">{{role}}</td>
+            <td class="span4"><div class="badge badge-info">{{points}}</div> <div class="progress">
+              <div class="bar" style="width: {{points}}%"></td>
+            <td class="span4">{{> member_task}}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 

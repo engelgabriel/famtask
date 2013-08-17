@@ -255,7 +255,7 @@ Template.todos.todos = function () {
   var sel = {list_id: list_id};
   var tag_filter = Session.get('tag_filter');
   if (tag_filter) sel.tags = tag_filter;
-  return Todos.find(sel, {sort: {timestamp: 1}});
+  return Todos.find(sel, {sort: {done: 1, points: -1}});
 };
 
 Template.todo_item.tag_objs = function () {
@@ -353,7 +353,7 @@ Template.todo_item.events(okCancelEvents(
   '#todo-points-input',
   {
     ok: function (value) {
-      Todos.update(this._id, {$set: {points: value}});
+      Todos.update(this._id, {$set: {points: parseInt(value)}});
       Session.set('editing_itemname', null);
     },
     cancel: function () {
