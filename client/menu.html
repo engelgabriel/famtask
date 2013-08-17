@@ -1,42 +1,24 @@
 <template name="menu">
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
-      <div class="nav-collapse collapse" id="nav-collapse-01">
-        <ul class="nav">
-          <li class="{{membersActive}}">
-            <a href="" id="membersMenu">
-              Members
-              <span class="navbar-unread">1</span>
-            </a>
-          </li>
-          <li class="{{todosActive}}">
-            <a href="" id="tasksMenu">
-              Tasks
-              <span class="navbar-unread">1</span>
-            </a>
-            <ul>
-              <li><a href="#fakelink">Element One</a></li>
-              <li>
-                <a href="#fakelink">Sub menu</a>
-                <ul>
-                  <li><a href="#fakelink">Element One</a></li>
-                  <li><a href="#fakelink">Element Two</a></li>
-                  <li><a href="#fakelink">Element Three</a></li>
-                </ul> <!-- /Sub menu -->
-              </li>
-              <li><a href="#fakelink">Element Three</a></li>
-            </ul> <!-- /Sub menu -->
-          </li>
-          <li>
-            <a href="#fakelink">
-              Rewards
-            </a>
-          </li>
-        </ul>
-      </div><!--/.nav -->
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <a class="brand" style="font-family: 'Grand Hotel', cursive; text-decoration: none;">FamTask</a>
+      <ul class="nav">
+        <li class="{{todosActive}}">
+          <a href="" id="todosMenu">
+            Tasks
+          </a>
+        </li>
+        <li class="{{rewardsActive}}">
+          <a href="" id="rewardsMenu">
+            Rewards
+          </a>
+        </li>
+        <li class="{{membersActive}}">
+          <a href="" id="membersMenu">
+            Members
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
 </template>

@@ -1,0 +1,42 @@
+<head>
+  <meta charset="utf-8">
+  <title>FamTask</title>
+  <meta name="description" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="cleartype" content="on">
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  {{> menu}}
+
+  {{#if pageIsMembers}}
+  {{/if}}
+
+  {{#if pageIsTodos}}
+    {{> tag_filter}}
+  {{/if}}
+
+  {{#if pageIsRewards}}
+  {{/if}}
+
+  <div id="main-pane">
+    {{#if pageIsMembers}}
+      {{> members}}
+    {{/if}}
+
+    {{#if pageIsTodos}}
+      {{> todos}}
+    {{/if}}
+
+    {{#if pageIsRewards}}
+      {{> rewards}}
+    {{/if}}
+  </div>
+
+  <div id="side-pane">
+    {{> lists}}
+  </div>
+</body>

@@ -88,24 +88,38 @@ Template.menu.events({
     Deps.flush();
     return false;
   },
-  'click #tasksMenu': function (evt) {
+  'click #todosMenu': function (evt) {
     Router.showTodos();
+    Deps.flush();
+    return false;
+  },
+  'click #rewardsMenu': function (evt) {
+    Router.showRewards();
     Deps.flush();
     return false;
   }
 });
 
+Handlebars.registerHelper("pageIsTodos", function() {
+  return Session.get('page') === 'todos';
+});
+Handlebars.registerHelper("pageIsRewards", function() {
+  return Session.get('page') === 'rewards';
+});
 Handlebars.registerHelper("pageIsMembers", function() {
   return Session.get('page') === 'members';
 });
 
-Handlebars.registerHelper("membersActive", function() {
-  return Session.get('page') === 'members' ? 'active' : '';
-}); 
 
 Handlebars.registerHelper("todosActive", function() {
   return Session.get('page') === 'todos' ? 'active' : '';
-}); 
+});
+Handlebars.registerHelper("rewardsActive", function() {
+  return Session.get('page') === 'rewards' ? 'active' : '';
+});
+Handlebars.registerHelper("membersActive", function() {
+  return Session.get('page') === 'members' ? 'active' : '';
+});
 
 ////////// Lists //////////
 
@@ -429,31 +443,37 @@ Template.tag_filter.events({
 var TodosRouter = Backbone.Router.extend({
   routes: {
     // "": "main",
-    "todos/:list_id": "todos",
-    "members": "members"
+    "todos": "todos",
+    "rewards": "rewards",
+    "members": "members",
+    "member/:member_id": "member"
   },
   main: function (list_id) {
   //   this.navigate('todos', true);
   },
-  todos: function (list_id) {
-    var oldList = Session.get("list_id");
-    if (oldList !== list_id) {
-      Session.set("list_id", list_id);
-      Session.set("tag_filter", null);
-    }
+  todos: function () {
     Session.set("page", "todos");
   },
-  members: function (list_id) {
+  members: function () {
+    Session.set("page", "members");
+  },
+  rewards: function () {
     Session.set("page", "members");
   },
   setList: function (list_id) {
-    this.navigate('todos/'+list_id, true);
+    Session.set("list_id", list_id);
+  },
+  showTodos: function () {
+    this.navigate('todos', true);
+  },
+  showRewards: function () {
+    this.navigate('rewards', true);
   },
   showMembers: function () {
     this.navigate('members', true);
   },
-  showTodos: function () {
-    this.navigate('todos/'+Session.get("list_id"), true);
+  showMember: function () {
+    this.navigate('member/'+Session.get("member_id"), true);
   }
 });
 
