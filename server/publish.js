@@ -20,3 +20,16 @@ Meteor.publish('todos', function (list_id) {
   return Todos.find({list_id: list_id});
 });
 
+// Rewards -- {text: String,
+//           done: Boolean,
+//           tags: [String, ...],
+//           list_id: String,
+//           timestamp: Number}
+Rewards = new Meteor.Collection("rewards");
+
+// Publish all items for requested list_id.
+Meteor.publish('rewards', function (list_id) {
+  check(list_id, String);
+  return Rewards.find({list_id: list_id});
+});
+
