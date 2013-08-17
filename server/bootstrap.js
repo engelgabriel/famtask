@@ -23,13 +23,13 @@ Meteor.startup(function () {
             text: "Take the dog for a walk",
             points: 10,
             done: "",
-            member: "Jonny"
+            member: "Mary"
           },
           {
             text: "Clean the dishes",
             points: 100,
             done: "",
-            member: "Jonny"
+            member: "John"
           }
         ],
         members: [
@@ -56,25 +56,25 @@ Meteor.startup(function () {
             text: "Take the trash out",
             points: 50,
             done: "",
-            member: "Jonny"
+            member: "Bart"
           },
           {
             text: "Clean the room",
             points: 250,
             done: "",
-            member: "Jonny"
+            member: "Homer"
           },
           {
             text: "Take the dog for a walk",
             points: 10,
             done: "",
-            member: "Jonny"
+            member: "Lisa"
           },
           {
             text: "Clean the dishes",
             points: 100,
             done: "",
-            member: "Jonny"
+            member: "Bart"
           }
          ],
          members: [

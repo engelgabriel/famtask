@@ -212,6 +212,13 @@ Template.todo_item.tag_objs = function () {
   });
 };
 
+Template.todo_item.members = function () {
+  var todo_id = this._id;
+  return _.map(this.tags || [], function (tag) {
+    return {todo_id: todo_id, tag: tag};
+  });
+};
+
 Template.todo_item.done_class = function () {
   return this.done ? 'done' : '';
 };
