@@ -4,7 +4,7 @@
   <meta name="description" content="">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="cleartype" content="on">
 </head>
 
@@ -114,12 +114,12 @@
 <template name="todo_item">
   <li class="todo {{done_class}}">
     <div class="destroy"></div>
-    <div class="display">
-      <input class="check" name="markdone" type="checkbox" {{{done_checkbox}}} />
+    <div class="display" class="todo-name">
       <input id="todo-text-input" type="text" value="{{text}}" />
       <input id="todo-points-input" type="text" value="{{points}}" />
       {{> members}}
     </div>
+    <div class="check"></div>
     <div class="item-tags">
       {{#each tag_objs}}
         <div class="tag removable_tag">

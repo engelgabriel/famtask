@@ -264,7 +264,7 @@ h3 {
     width: 20px;
 }
 
-#item-list .todo:hover .destroy {
+#item-list .todo .destroy {
     background: url('/destroy.png') no-repeat 0 0;
 }
 
@@ -3158,8 +3158,7 @@ textarea[class*="span"] {
   list-style-type: none;
 }
 .todo li {
-  background: #34495e url(../images/todo/todo.png) 92% center no-repeat;
-  background-size: 20px 20px;
+  background: #34495e;
   cursor: pointer;
   margin-top: 2px;
   padding: 18px 42px 17px 25px;
@@ -3170,6 +3169,13 @@ textarea[class*="span"] {
   transition: 0.25s;
   -webkit-backface-visibility: hidden;
 }
+.todo li .check {
+  background: #34495e url(../images/todo/todo.png) center center no-repeat;
+  background-size: 20px 20px;
+  width: 100px;
+  height: 100px;
+}
+
 .todo li:first-child {
   margin-top: 0;
 }
@@ -3180,10 +3186,15 @@ textarea[class*="span"] {
   padding-bottom: 18px;
 }
 .todo li.todo-done {
-  background: transparent url(../images/todo/done.png) 92% center no-repeat;
+  background: transparent;
   background-size: 20px 20px;
   color: #1abc9c;
 }
+.todo li.todo-done .check {
+  background: transparent url(../images/todo/done.png) center center no-repeat;
+  background-size: 20px 20px;
+}
+
 .todo li.todo-done .todo-name {
   color: #1abc9c;
 }
