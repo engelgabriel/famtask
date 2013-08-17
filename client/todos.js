@@ -443,33 +443,31 @@ Template.tag_filter.events({
 var TodosRouter = Backbone.Router.extend({
   routes: {
     // "": "main",
-    "todos/:list_id": "todos",
-    "rewards/:list_id": "rewards",
+    "todos": "todos",
+    "rewards": "rewards",
     "members": "members",
     "member/:member_id": "member"
   },
   main: function (list_id) {
   //   this.navigate('todos', true);
   },
-  todos: function (list_id) {
-    var oldList = Session.get("list_id");
-    if (oldList !== list_id) {
-      Session.set("list_id", list_id);
-      Session.set("tag_filter", null);
-    }
+  todos: function () {
     Session.set("page", "todos");
   },
-  members: function (list_id) {
+  members: function () {
+    Session.set("page", "members");
+  },
+  rewards: function () {
     Session.set("page", "members");
   },
   setList: function (list_id) {
-    this.navigate('todos/'+list_id, true);
+    Session.set("list_id", list_id);
   },
   showTodos: function () {
-    this.navigate('todos/'+Session.get("list_id"), true);
+    this.navigate('todos', true);
   },
   showRewards: function () {
-    this.navigate('rewards/'+Session.get("list_id"), true);
+    this.navigate('rewards', true);
   },
   showMembers: function () {
     this.navigate('members', true);
