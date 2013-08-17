@@ -88,8 +88,13 @@ Template.menu.events({
     Deps.flush();
     return false;
   },
-  'click #tasksMenu': function (evt) {
+  'click #todosMenu': function (evt) {
     Router.showTodos();
+    Deps.flush();
+    return false;
+  },
+  'click #rewardsMenu': function (evt) {
+    Router.showRewards();
     Deps.flush();
     return false;
   }
@@ -99,13 +104,25 @@ Handlebars.registerHelper("pageIsMembers", function() {
   return Session.get('page') === 'members';
 });
 
+Handlebars.registerHelper("pageIsTodos", function() {
+  return Session.get('page') === 'todos';
+});
+
+Handlebars.registerHelper("pageIsRewards", function() {
+  return Session.get('page') === 'rewards';
+});
+
 Handlebars.registerHelper("membersActive", function() {
   return Session.get('page') === 'members' ? 'active' : '';
-}); 
+});
 
 Handlebars.registerHelper("todosActive", function() {
   return Session.get('page') === 'todos' ? 'active' : '';
-}); 
+});
+
+Handlebars.registerHelper("rewardsActive", function() {
+  return Session.get('page') === 'rewards' ? 'active' : '';
+});
 
 ////////// Lists //////////
 
@@ -430,7 +447,9 @@ var TodosRouter = Backbone.Router.extend({
   routes: {
     // "": "main",
     "todos/:list_id": "todos",
-    "members": "members"
+    "rewards/:list_id": "rewards",
+    "members": "members",
+    "member/:member_id": "member"
   },
   main: function (list_id) {
   //   this.navigate('todos', true);

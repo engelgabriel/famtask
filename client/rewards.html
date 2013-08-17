@@ -1,15 +1,15 @@
-<template name="todos">
+<template name="rewards">
   {{#if any_list_selected}}
-    <div id="items-view" class="todo-list">
+    <div id="items-view" class="reward-list">
       {{#if loading}}
         Loading...
       {{else}}
-        <div id="new-todo-box">
-          <input type="text" id="new-todo" placeholder="New item" />
+        <div id="new-reward-box">
+          <input type="text" id="new-reward" placeholder="New item" />
         </div>
         <div id="item-list">
-          {{#each todos}}
-            {{> todo_item}}
+          {{#each rewards}}
+            {{> reward_item}}
           {{/each}}
         </div>
       {{/if}}
@@ -17,11 +17,11 @@
   {{/if}}
 </template>
 
-<template name="todo_item">
-  <div class="todo {{done_class}} row">
+<template name="reward_item">
+  <div class="reward {{done_class}} row">
     <div class="span1 destroy"></div>
-    <div class="span3"><input id="todo-text-input" type="text" value="{{text}}" style="width: 100%"/></div>
-    <div class="span1"><input id="todo-points-input" type="text" value="{{points}}" style="width: 100%"/></div>
+    <div class="span3"><input id="reward-text-input" type="text" value="{{text}}" style="width: 100%"/></div>
+    <div class="span1"><input id="reward-points-input" type="text" value="{{points}}" style="width: 100%"/></div>
     <div class="span3">{{> member_select}}</div>
     <div class="span1 checkmark"></div>
     <div class="span3 item-tags ">
@@ -58,7 +58,7 @@
 </template>
 
 <template name="member_select">
-  <select name="member" id="todo-member-input" value="{{member}}" style="width: 100%">
+  <select name="member" id="reward-member-input" value="{{member}}" style="width: 100%">
     {{#each members}}
         <option value="{{name}}" {{#if isSelected ../member}}selected="selected"{{/if}}>{{name}}</option>
     {{/each}}

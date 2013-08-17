@@ -1002,7 +1002,6 @@ h6 {
 
 }
 .navbar .brand {
-  border-radius: 6px 0 0 6px;
   color: #526476;
   font-size: 23.996px;
   /* 24px */
@@ -1010,7 +1009,9 @@ h6 {
   font-weight: 700;
   margin-left: 0;
   padding: 23px 28px 24px 32px;
-  text-shadow: none;
+  font-family: 'Grand Hotel', cursive;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
 }
 .navbar .brand:hover,
 .navbar .brand:focus {
@@ -1099,9 +1100,9 @@ h6 {
   margin-left: 12px;
 }
 .navbar .nav > li:first-child > a {
-  -webkit-border-radius: 0 0 0 6px;
-  -moz-border-radius: 0 0 0 6px;
-  border-radius: 0 0 0 6px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 .navbar .nav ul {
   border-radius: 4px;
@@ -1132,11 +1133,11 @@ h6 {
   position: relative;
 }
 .navbar .nav ul li:first-child {
-  border-radius: 6px 6px 0 0;
+  border-radius: 0;
   padding-top: 3px;
 }
 .navbar .nav ul li:last-child {
-  border-radius: 0 0 6px 6px;
+  border-radius: 0;
 }
 .navbar .nav ul li.active > a,
 .navbar .nav ul li.active > a:hover,
@@ -1151,7 +1152,7 @@ h6 {
   padding-right: 9px;
 }
 .navbar .nav ul a {
-  border-radius: 2px;
+  border-radius: 0;
   color: #ffffff;
   display: block;
   font-size: 14px;
@@ -1192,9 +1193,9 @@ h6 {
   border: none;
   padding-left: 0;
   padding-right: 0;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
   filter: unquote("progid:DXImageTransform.Microsoft.gradient(enabled = false)");
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
