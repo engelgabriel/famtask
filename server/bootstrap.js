@@ -2,10 +2,13 @@
 Meteor.startup(function () {
   Lists.remove({});
   Todos.remove({});
+  Rewards.remove({});
+  Members.remove({});
   if (Lists.find().count() === 0) {
     var timestamp = (new Date()).getTime();
     var data = [
-      {name: "The Smiths",
+      {
+        name: "The Smiths",
         todos: [
           {
             text: "Take the trash out",
@@ -32,6 +35,26 @@ Meteor.startup(function () {
             member: "John"
           }
         ],
+        rewards: [
+          {
+            text: "Disneyland",
+            points: 500,
+            done: "",
+            member: "Meggie"
+          },
+          {
+            text: "iPhone 8",
+            points: 2500,
+            done: "",
+            member: "Lisa"
+          },
+          {
+            text: "Ferrari",
+            points: 10000,
+            done: "",
+            member: "Bart"
+          }
+        ],
         members: [
           {
             name: "Jonny",
@@ -53,7 +76,8 @@ Meteor.startup(function () {
           }
         ]
       },
-      {name: "The Simpsons",
+      {
+        name: "The Simpsons",
         todos: [
           {
             text: "Take the trash out",
@@ -79,8 +103,28 @@ Meteor.startup(function () {
             done: "",
             member: "Bart"
           }
-         ],
-         members: [
+        ],
+        rewards: [
+          {
+            text: "Disneyland",
+            points: 500,
+            done: "",
+            member: "Meggie"
+          },
+          {
+            text: "iPhone 8",
+            points: 2500,
+            done: "",
+            member: "Lisa"
+          },
+          {
+            text: "Ferrari",
+            points: 10000,
+            done: "",
+            member: "Bart"
+          }
+        ],
+        members: [
           {
             name: "Bart",
             role: "son",
@@ -113,7 +157,8 @@ Meteor.startup(function () {
           }
         ]
       },
-      {name: "The Jetsons",
+      {
+        name: "The Jetsons",
         todos: [
           {
             text: "Take the trash out",
@@ -140,7 +185,27 @@ Meteor.startup(function () {
             member: "Bart"
           }
         ],
-         members: [
+        rewards: [
+          {
+            text: "Disneyland",
+            points: 500,
+            done: "",
+            member: "Meggie"
+          },
+          {
+            text: "iPhone 8",
+            points: 2500,
+            done: "",
+            member: "Lisa"
+          },
+          {
+            text: "Ferrari",
+            points: 10000,
+            done: "",
+            member: "Bart"
+          }
+        ],
+        members: [
           {
             name: "Bart",
             role: "son",
@@ -178,12 +243,22 @@ Meteor.startup(function () {
     for (var i = 0; i < data.length; i++) {
       var list_id = Lists.insert({name: data[i].name});
       for (var j = 0; j < data[i].todos.length; j++) {
-        var info = data[i].todos[j];
+        var todo = data[i].todos[j];
         Todos.insert({list_id: list_id,
-                      text: info.text,
-                      points: info.points,
-                      done: info.done,
-                      member: info.member,
+                      text: todo.text,
+                      points: todo.points,
+                      done: todo.done,
+                      member: todo.member,
+                      timestamp: timestamp});
+        timestamp += 1; // ensure unique timestamp.
+      }
+      for (var r = 0; r < data[i].rewards.length; r++) {
+        var reward = data[i].rewards[r];
+        Rewards.insert({list_id: list_id,
+                      text: reward.text,
+                      points: reward.points,
+                      done: reward.done,
+                      member: reward.member,
                       timestamp: timestamp});
         timestamp += 1; // ensure unique timestamp.
       }
