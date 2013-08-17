@@ -202,7 +202,7 @@ Template.members.members = function () {
   if (!list_id)
     return {};
   var sel = {list_id: list_id};
-  return Members.find(sel, {sort: {name: 1}});
+  return Members.find(sel, {sort: {points: -1}});
 };
 
 ////////// Todos //////////

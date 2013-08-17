@@ -4143,3 +4143,15 @@ body.vjs-full-window {
 .mal {
   margin-left: 20px;
 }
+
+/* Memebers CSS codes */
+#member_head{
+  /*background-color: #2C3E50;*/
+  background-color: #34495e;
+  color: #ffffff;
+}
+
+#member_body{
+  /*background-color: #34495e;*/
+
+}

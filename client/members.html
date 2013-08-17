@@ -1,24 +1,35 @@
 <template name="members">
   <div class="container">
     <table class="members table">
-      <thead>
+      <thead id="member_head">
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Role</th>
-          <th>Points</th>
+          <!-- <th>#</th> -->
+          <th id="name">Name</th>
+          <th id="role">Role</th>
+          <th id="point">Points</th>
+          <th>Badges</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="member_body">
       {{#each members}}
         <tr>
-          <td class="span4">1</td>
           <td class="span4">{{name}}</td>
           <td class="span4">{{role}}</td>
-          <td class="span4">{{points}}</td>
+          <td class="span4"><div class="badge badge-info">{{points}}</div> <div class="progress">
+            <div class="bar" style="width: {{points}}%"></td>
+          <td class="span4"></div>
+          </div>
+      	</td>
         </tr>
       {{/each}}
       </tbody>
     </table>
+  </div>
+  {{> member_task}}
+</template>
+
+<template name="member_task">
+  <div class="container">
+    <div class="span4">Clean</div>
   </div>
 </template>
