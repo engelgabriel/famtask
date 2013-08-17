@@ -1,8 +1,50 @@
 <head>
-  <title>Todos</title>
+  <title>Family Tasks</title>
 </head>
 
 <body>
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-01"></button>
+      <div class="nav-collapse collapse" id="nav-collapse-01">
+        <ul class="nav">
+          <li>
+            <a href="#fakelink">
+              Menu Item
+              <span class="navbar-unread">1</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="#fakelink">
+              Messages
+              <span class="navbar-unread">1</span>
+            </a>
+            <ul>
+              <li><a href="#fakelink">Element One</a></li>
+              <li>
+                <a href="#fakelink">Sub menu</a>
+                <ul>
+                  <li><a href="#fakelink">Element One</a></li>
+                  <li><a href="#fakelink">Element Two</a></li>
+                  <li><a href="#fakelink">Element Three</a></li>
+                </ul> <!-- /Sub menu -->
+              </li>
+              <li><a href="#fakelink">Element Three</a></li>
+            </ul> <!-- /Sub menu -->
+          </li>
+          <li>
+            <a href="#fakelink">
+              About Us
+            </a>
+          </li>
+        </ul>
+      </div><!--/.nav -->
+    </div>
+  </div>
+</div>
+
   <div id="top-tag-filter">
     {{> tag_filter}}
   </div>
@@ -11,13 +53,15 @@
     {{> todos}}
   </div>
 
+
+
   <div id="side-pane">
     {{> lists}}
   </div>
 </body>
 
 <template name="lists">
-  <h3>Todo Lists</h3>
+  <h3>Families</h3>
   {{#if loading}}
     <div id="lists">Loading...</div>
   {{else}}
@@ -67,15 +111,16 @@
   <li class="todo {{done_class}}">
     {{#if editing}}
       <div class="edit">
-        <input id="todo-input" type="text" value="{{text}}" />
+        <input id="todo-text-input" type="text" value="{{text}}" />
+        <input id="todo-points-input" type="text" value="{{points}}" />
       </div>
     {{else}}
       <div class="destroy"></div>
       <div class="display">
         <input class="check" name="markdone" type="checkbox" {{{done_checkbox}}} />
         <div class="todo-text">{{text}}</div>
+        <div class="todo-points">{{points}}</div>
       </div>
-      <div class="points">{{points}}</div>
     {{/if}}
     <div class="item-tags">
       {{#each tag_objs}}

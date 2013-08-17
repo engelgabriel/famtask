@@ -153,6 +153,7 @@ Template.todos.events(okCancelEvents(
       var tag = Session.get('tag_filter');
       Todos.insert({
         text: text,
+        points: 100,
         list_id: Session.get('list_id'),
         done: false,
         timestamp: (new Date()).getTime(),
@@ -216,6 +217,12 @@ Template.todo_item.events({
     activateInput(tmpl.find("#edittag-input"));
   },
 
+  'dblclick .display .todo-points': function (evt, tmpl) {
+    Session.set('editing_itemname', this._id);
+    Deps.flush(); // update DOM before focus
+    activateInput(tmpl.find("#todo-points-input"));
+  },
+
   'dblclick .display .todo-text': function (evt, tmpl) {
     Session.set('editing_itemname', this._id);
     Deps.flush(); // update DOM before focus
@@ -235,7 +242,19 @@ Template.todo_item.events({
 });
 
 Template.todo_item.events(okCancelEvents(
-  '#todo-input',
+  '#todo-points-input',
+  {
+    ok: function (value) {
+      Todos.update(this._id, {$set: {points: value}});
+      Session.set('editing_itemname', null);
+    },
+    cancel: function () {
+      Session.set('editing_itemname', null);
+    }
+  }));
+
+Template.todo_item.events(okCancelEvents(
+  '#todo-text-input',
   {
     ok: function (value) {
       Todos.update(this._id, {$set: {text: value}});

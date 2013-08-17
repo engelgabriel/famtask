@@ -1,7 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-}
 
 ul {
     list-style: none;
@@ -39,7 +35,7 @@ h3 {
 }
 
 #top-tag-filter, #main-pane, #side-pane, #bottom-pane {
-    position: absolute;
+    /*position: absolute;*/
     left: 0;
     right: 0;
     top: 0;
