@@ -1,7 +1,11 @@
 <template name="members">
   <div class="container">
     {{#each members}}
-        <div class="row">{{name}}</div>
+        <div class="member_row">
+           	<div class="span4">{{name}}</div>
+        	<div class="span4">{{role}}</div>
+        	<div class="span4">{{points}}</div>
+        </div>
     {{/each}}
   </div>
 </template>
