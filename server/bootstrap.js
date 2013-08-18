@@ -190,50 +190,44 @@ Meteor.startup(function () {
             text: "Disneyland",
             points: 500,
             done: "",
-            member: "Meggie"
+            member: "Liz"
           },
           {
             text: "iPhone 8",
             points: 2500,
             done: "",
-            member: "Lisa"
+            member: "Elroy"
           },
           {
             text: "Ferrari",
             points: 10000,
             done: "",
-            member: "Bart"
+            member: "Jorge"
           }
         ],
         members: [
           {
-            name: "Bart",
+            name: "Jorge",
             role: "son",
             points: 10,
             avatar: "qwerty"
           },
           {
-            name: "Lisa",
+            name: "Elroy",
             role: "daughter",
             points: 20,
             avatar: "qwerty"
           },
           {
-            name: "Meggie",
+            name: "Juddy",
             role: "daughter",
             points: 30,
             avatar: "qwerty"
           },
           {
-            name: "Margge",
+            name: "Liz",
             role: "mother",
             points: 40,
-            avatar: "qwerty"
-          },
-          {
-            name: "Homer",
-            role: "father",
-            points: 50,
             avatar: "qwerty"
           }
         ]
@@ -265,6 +259,7 @@ Meteor.startup(function () {
       for (var m = 0; m < data[i].members.length; m++) {
         var member = data[i].members[m];
         Members.insert({list_id: list_id,
+                      _id: member.name,
                       name: member.name,
                       role: member.role,
                       points: member.points,

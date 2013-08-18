@@ -314,6 +314,11 @@ Template.member_select.isSelected = function (name) {
 Template.todo_item.events({
   'click .checkmark': function () {
     Todos.update(this._id, {$set: {done: !this.done}});
+    if (this.done) {
+      Members.update(this.member, {$inc: {points: -this.points}});
+    } else {
+      Members.update(this.member, {$inc: {points: this.points}});
+    }
   },
 
   'click .destroy': function () {
@@ -474,6 +479,11 @@ Template.reward_item.adding_tag = function () {
 Template.reward_item.events({
   'click .checkmark': function () {
     Rewards.update(this._id, {$set: {done: !this.done}});
+    if (this.done) {
+      Members.update(this.member, {$inc: {points: this.points}});
+    } else {
+      Members.update(this.member, {$inc: {points: -this.points}});
+    }
   },
 
   'click .destroy': function () {
