@@ -1,19 +1,37 @@
 <template name="rewards">
   <div id="main-pane" class="palette-wisteria">
     <div class="container">
+    {{> tag_filter}}
     {{#if any_list_selected}}
       <div id="items-view" class="reward-list">
         {{#if loading}}
           Loading...
         {{else}}
-          <div id="new-reward-box">
-            <input type="text" id="new-reward" placeholder="New item" />
-          </div>
-          <div id="item-list">
+          <table id="item-list" class="table">
+            <thead id="member_head">
+              <tr>
+                <th></th>
+                <th>Task</th>
+                <th>Points</th>
+                <th>Tasks</th>
+                <th>Tags</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="member_body">
             {{#each rewards}}
               {{> reward_item}}
             {{/each}}
-          </div>
+              <tr class="reward {{done_class}}">
+                <td></td>
+                <td id="new-reward-box"><input type="text" id="new-reward" placeholder="New item" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         {{/if}}
       </div>
     {{/if}}
@@ -22,13 +40,12 @@
 </template>
 
 <template name="reward_item">
-  <div class="reward {{done_class}} row">
-    <div class="span1 destroy"></div>
-    <div class="span3"><input id="reward-text-input" type="text" value="{{text}}" style="width: 100%"/></div>
-    <div class="span1"><input id="reward-points-input" type="text" value="{{points}}" style="width: 100%"/></div>
-    <div class="span3">{{> member_select}}</div>
-    <div class="span1 checkmark"></div>
-    <div class="span3 item-tags ">
+  <tr class="reward {{done_class}}">
+    <td class="destroy" style="width: 1%"><i class="icon-remove-sign icon-2x"></i></td>
+    <td class=""><input id="reward-text-input" type="text" value="{{text}}" style="width: 100%"/></td>
+    <td class="" style="width: 1%"><input id="reward-points-input" type="text" value="{{points}}" style="width: 100%"/></td>
+    <td class="">{{> member_select}}</td>
+    <td class="item-tags" style="width: 20%">
       {{#each tag_objs}}
         <div class="tag removable_tag">
           <div class="name">{{tag}}</div>
@@ -44,6 +61,7 @@
           +tag
         </div>
       {{/if}}
-    </div>
-  </div>
+    </td>
+    <td class="checkmark" style="width: 1%"><i class="icon-check-empty icon-2x"></i></td>
+  </tr>
 </template>

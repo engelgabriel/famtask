@@ -437,7 +437,7 @@ Template.rewards.rewards = function () {
   var sel = {list_id: list_id};
   var tag_filter = Session.get('tag_filter');
   if (tag_filter) sel.tags = tag_filter;
-  return Rewards.find(sel, {sort: {timestamp: 1}});
+  return Rewards.find(sel, {sort: {done: 1, points: -1}});
 };
 
 Template.reward_item.tag_objs = function () {
