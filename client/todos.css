@@ -3144,7 +3144,8 @@ textarea[class*="span"] {
   }
 }
 .todo-list,
-.reward-list {
+.reward-list,
+.member-list {
   background-color: #2c3e50;
   color: #798795;
   /*margin-bottom: 20px;*/
@@ -3154,7 +3155,8 @@ textarea[class*="span"] {
 }
 
 .todo,
-.reward  {
+.reward,
+.member {
   background: #34495e;
   cursor: pointer;
   margin-top: 2px;
@@ -3167,7 +3169,8 @@ textarea[class*="span"] {
 }
 
 .todo.todo-done,
-.reward.reward-done {
+.reward.reward-done,
+.member.member-done {
   background: transparent;
   color: #1abc9c;
 }

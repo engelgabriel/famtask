@@ -1,28 +1,30 @@
 <template name="members">
   <div id="main-pane" class="palette-pomegranate">
     <div class="container">
-      <table class="members table">
-        <thead id="member_head">
-          <tr>
-            <!-- <th>#</th> -->
-            <th id="name">Name</th>
-            <th id="role">Role</th>
-            <th id="point">Points</th>
-            <th>Tasks</th>
-          </tr>
-        </thead>
-        <tbody id="member_body">
-        {{#each members}}
-          <tr>
-            <td class="span4"><a herf="#{{name}}" id="member_name">{{name}}</a></td>
-            <td class="span4">{{role}}</td>
-            <td class="span4"><div class="badge badge-info">{{points}}</div> <div class="progress">
-              <div class="bar" style="width: {{points}}%"></td>
-            <td class="span4">{{> member_task}}</td>
-          </tr>
-        {{/each}}
-        </tbody>
-      </table>
+      <div id="items-view" class="member-list">
+        <table class="members table">
+          <thead id="member_head">
+            <tr>
+              <!-- <th>#</th> -->
+              <th id="name">Name</th>
+              <th id="role">Role</th>
+              <th id="point">Points</th>
+              <th>Tasks</th>
+            </tr>
+          </thead>
+          <tbody id="member_body">
+          {{#each members}}
+            <tr>
+              <td class="span4"><a herf="#{{name}}" id="member_name">{{name}}</a></td>
+              <td class="span4">{{role}}</td>
+              <td class="span4"><div class="badge badge-info">{{points}}</div> <div class="progress">
+                <div class="bar" style="width: {{points}}%"></td>
+              <td class="span4">{{> member_task}}</td>
+            </tr>
+          {{/each}}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
